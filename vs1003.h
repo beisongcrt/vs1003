@@ -4,9 +4,10 @@
 #define __VS1003_H__
 
 #include <rtthread.h>
-#include "drv_spi.h"
 
 #ifdef PKG_USING_VS1003
+
+#include "drv_spi.h"
 
 #define VS_WRITE_COMMAND 0x02
 #define VS_READ_COMMAND  0x03
