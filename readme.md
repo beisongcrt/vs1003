@@ -35,11 +35,16 @@ VS1003_CONFIG VS1003_config =
         .name = VS1003_DEVICE_NAME,
         .spi_device_name = VS1003_SPI_DEVICE_NAME,
 
-    /* 这个片选脚是给 spi 设备的，
+        /* 这个片选脚是给 spi 设备的，
        由于 VS1003 的命令脚和数据脚是分开的，
        所有这个脚位需要设置为空脚  */
+#if (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_GPIO_TYPE)
         .GPIO_CS_Port = GPIOD,
         .GPIO_CS_Pin  = GPIO_PIN_13,
+#elif (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_PIN_NUM)
+        .pin_spi_CS = 61,    // PD13
+#endif
+        
 
         .pin_DREQ   = 54,    // PD6
         .pin_XCS    = 28,    // PB12
