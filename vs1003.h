@@ -50,13 +50,22 @@
 #define GPIO_ODATA       0XC019
 
 
+#define SPI_DEVICE_ATTACH_PIN_NUM    1
+#define SPI_DEVICE_ATTACH_GPIO_TYPE  2
+
+#define SPI_DEVICE_ATTACH_MODE       SPI_DEVICE_ATTACH_PIN_NUM 
+
 typedef struct
 {
     char * name;
     char * spi_device_name;
 
+#if (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_GPIO_TYPE)
     GPIO_TypeDef* GPIO_CS_Port;
     unsigned short GPIO_CS_Pin;
+#elif (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_PIN_NUM)
+    rt_base_t pin_spi_CS;
+#endif
 
     rt_base_t pin_DREQ;
     rt_base_t pin_XCS;

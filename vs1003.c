@@ -483,10 +483,18 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config)
 
     VS1003_dev->config = config;
 
+
+#if (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_GPIO_TYPE)
     res = rt_hw_spi_device_attach(VS1003_dev->config->spi_device_name, 
             VS1003_dev->config->name,
             VS1003_dev->config->GPIO_CS_Port,
             VS1003_dev->config->GPIO_CS_Pin);
+#elif (SPI_DEVICE_ATTACH_MODE == SPI_DEVICE_ATTACH_PIN_NUM)
+    res = rt_hw_spi_device_attach(VS1003_dev->config->spi_device_name, 
+            VS1003_dev->config->name,
+            VS1003_dev->config->pin_spi_CS);
+#endif
+    
     if (res != RT_EOK)
     {
         VS1003_printf("VS1003 Failed to attach device %s\n", VS1003_dev->config->name);
