@@ -7,6 +7,7 @@
 
 #ifdef PKG_USING_VS1003
 
+#include <drivers/pin.h>
 #include "drv_spi.h"
 
 #define VS_WRITE_COMMAND 0x02
