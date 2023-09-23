@@ -5,6 +5,10 @@
 
 #include <rtthread.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifdef PKG_USING_VS1003
 
 #include <drivers/pin.h>
@@ -94,6 +98,10 @@ rt_err_t VS1003_Restart_Play(VS1003_DEVICE * VS1003);
 rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config);
 
 #endif  // PKG_USING_VS1003
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  // __VS1003_H__
 
