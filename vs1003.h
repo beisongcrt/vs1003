@@ -5,14 +5,19 @@
 
 #include <rtthread.h>
 
+#ifdef PKG_USING_VS1003
+
+#include <drivers/pin.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#ifdef PKG_USING_VS1003
-
-#include <drivers/pin.h>
 #include "drv_spi.h"
+
+#ifdef __cplusplus
+}
+#endif
 
 #define VS_WRITE_COMMAND 0x02
 #define VS_READ_COMMAND  0x03
@@ -99,9 +104,6 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config);
 
 #endif  // PKG_USING_VS1003
 
-#ifdef __cplusplus
-}
-#endif
 
 #endif  // __VS1003_H__
 
