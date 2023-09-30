@@ -527,6 +527,7 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config)
         return -RT_ENOSYS;
     }
 
+#ifdef RT_SPI_MASTER
     //Set device SPI Mode
     struct rt_spi_configuration cfg = {0};
     cfg.data_width = 8;
@@ -535,6 +536,7 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config)
     rt_spi_configure(VS1003_dev->spi_dev, &cfg);
 
     VS1003_printf("VS1003 %s init ok\n", VS1003_dev->config->name);
+#endif
 
     return res;
 }
