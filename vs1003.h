@@ -18,7 +18,6 @@ extern "C" {
 #if defined(BSP_USING_SPI1) || defined(BSP_USING_SPI2) || defined(BSP_USING_SPI3) || defined(BSP_USING_SPI4) || defined(BSP_USING_SPI5) || defined(BSP_USING_SPI6)
 
 #include "drv_spi.h"
-#include "spi.h"
 
 #define VS_WRITE_COMMAND 0x02
 #define VS_READ_COMMAND  0x03
