@@ -4,6 +4,7 @@
 #define __VS1003_H__
 
 #include <rtthread.h>
+#include <board.h>
 
 #ifdef PKG_USING_VS1003
 
@@ -13,11 +14,10 @@
 extern "C" {
 #endif
 
-#include "drv_spi.h"
 
-#ifdef __cplusplus
-}
-#endif
+#if defined(BSP_USING_SPI1) || defined(BSP_USING_SPI2) || defined(BSP_USING_SPI3) || defined(BSP_USING_SPI4) || defined(BSP_USING_SPI5) || defined(BSP_USING_SPI6)
+
+#include "drv_spi.h"
 
 #define VS_WRITE_COMMAND 0x02
 #define VS_READ_COMMAND  0x03
@@ -104,6 +104,11 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config);
 
 #endif  // PKG_USING_VS1003
 
+#endif /* BSP_USING_SPI1 || BSP_USING_SPI2 || BSP_USING_SPI3 || BSP_USING_SPI4 || BSP_USING_SPI5 */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif  // __VS1003_H__
 

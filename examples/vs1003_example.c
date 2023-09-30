@@ -4,6 +4,9 @@
 
 #ifdef VS1003_EXAMPLE
 
+#if defined(BSP_USING_SPI1) || defined(BSP_USING_SPI2) || defined(BSP_USING_SPI3) || defined(BSP_USING_SPI4) || defined(BSP_USING_SPI5) || defined(BSP_USING_SPI6)
+
+
 #define VS1003_SPI_DEVICE_NAME    "spi2"
 #define VS1003_DEVICE_NAME        "spi20"
 
@@ -89,6 +92,9 @@ void vs1003_play(void)
     }
 }
 MSH_CMD_EXPORT(vs1003_play, 'vs1003 example play');
+
+#endif /* BSP_USING_SPI1 || BSP_USING_SPI2 || BSP_USING_SPI3 || BSP_USING_SPI4 || BSP_USING_SPI5 */
+
 
 #endif
 

@@ -5,6 +5,9 @@
 
 #ifdef PKG_USING_VS1003
 
+#if defined(BSP_USING_SPI1) || defined(BSP_USING_SPI2) || defined(BSP_USING_SPI3) || defined(BSP_USING_SPI4) || defined(BSP_USING_SPI5) || defined(BSP_USING_SPI6)
+
+
 #define VS1003_DEBUG
 
 #ifdef VS1003_DEBUG
@@ -535,6 +538,8 @@ rt_err_t VS1003_init(VS1003_DEVICE * VS1003_dev, VS1003_CONFIG * config)
 
     return res;
 }
+
+#endif /* BSP_USING_SPI1 || BSP_USING_SPI2 || BSP_USING_SPI3 || BSP_USING_SPI4 || BSP_USING_SPI5 */
 
 #endif  // PKG_USING_VS1003
 
